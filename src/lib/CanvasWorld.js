@@ -23,16 +23,19 @@ export default class CanvasWorld {
     const wholeBounds = this.worldBounds();
     const canvas = this.canvases[i];
     const aspectRatio = canvas.getWidth() / canvas.getHeight();
-    const scaledWidth = Math.floor(wholeBounds[3] * aspectRatio);
-    let x = 0;
+    //const scaledWidth = Math.floor(wholeBounds[3] * aspectRatio);
+    const scaledHeight = Math.floor(wholeBounds[2] / aspectRatio);
+    //let x = 0;
+    let y = 0;
     if (i === 1) {
-      x = wholeBounds[2] - scaledWidth;
+      //x = wholeBounds[2] - scaledWidth;
+      y = wholeBounds[3] - scaledHeight;
     }
     return [
-      x,
       0,
-      scaledWidth,
-      wholeBounds[3],
+      y,
+      wholeBounds[2],
+      scaledHeight,
     ];
   }
 
@@ -49,7 +52,7 @@ export default class CanvasWorld {
     const offset = { x: 0, y: 0 };
     let i;
     for (i = 0; i < this.indexOfTarget(canvasTarget); i += 1) {
-      offset.x += this.canvases[i].getWidth();
+      offset.y += this.canvases[i].getHeight();
     }
     return offset;
   }
@@ -59,26 +62,31 @@ export default class CanvasWorld {
    * lined up horizontally starting from left to right.
    */
   worldBounds() {
-    const heights = [];
+    //const heights = [];
+    const widths = [];
     const dimensions = [];
     this.canvases.forEach((canvas) => {
-      heights.push(canvas.getHeight());
+      //heights.push(canvas.getHeight());
+      widths.push(canvas.getWidth());
       dimensions.push({
         height: canvas.getHeight(),
         width: canvas.getWidth(),
       });
     });
-    const minHeight = Math.min(...heights);
-    let scaledWidth = 0;
+    //const minHeight = Math.min(...heights);
+    const minWidth = Math.min(...widths);
+    //let scaledWidth = 0;
+    let scaledHeight = 0;
     dimensions.forEach((dim) => {
       const aspectRatio = dim.width / dim.height;
-      scaledWidth += Math.floor(minHeight * aspectRatio);
+      //scaledWidth += Math.floor(minHeight * aspectRatio);
+      scaledHeight += Math.floor(minWidth / aspectRatio);
     });
     return [
       0,
       0,
-      scaledWidth,
-      minHeight,
+      minWidth,
+      scaledHeight,
     ];
   }
 }

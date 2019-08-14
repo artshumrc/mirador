@@ -23,7 +23,7 @@ export class ViewerNavigation extends Component {
           disabled={!hasPreviousCanvas}
           onClick={() => { hasPreviousCanvas && setPreviousCanvas(); }}
         >
-          <NavigationIcon style={{ transform: 'rotate(180deg)' }} />
+          <NavigationIcon style={{ transform: 'rotate(270deg)' }} />
         </MiradorMenuButton>
         <MiradorMenuButton
           aria-label={t('nextCanvas')}
@@ -31,7 +31,7 @@ export class ViewerNavigation extends Component {
           disabled={!hasNextCanvas}
           onClick={() => { hasNextCanvas && setNextCanvas(); }}
         >
-          <NavigationIcon />
+          <NavigationIcon style={{ transform: 'rotate(90deg)' }} />
         </MiradorMenuButton>
       </div>
     );

@@ -21,7 +21,7 @@ const mapStateToProps = (state, { windowId }) => {
   return {
     canvasGroupings: new CanvasGroupings(
       getManifestCanvases(state, { windowId }),
-      viewType,
+      "single",
     ),
     canvasIndex: getCanvasIndex(state, { windowId }),
     config: state.config,

@@ -76,7 +76,7 @@ export class ThumbnailNavigation extends Component {
     if (canvasesLength === 1) {
       return config.thumbnailNavigation.width;
     }
-    return config.thumbnailNavigation.width * 2;
+    return config.thumbnailNavigation.width;
   }
 
   /** */
@@ -84,7 +84,7 @@ export class ThumbnailNavigation extends Component {
     const { view, config } = this.props;
     switch (view) {
       case 'book':
-        return (config.thumbnailNavigation.width * 2);
+        return (config.thumbnailNavigation.width);
       default:
         return config.thumbnailNavigation.width;
     }
