@@ -25,14 +25,16 @@ export class CanvasAnnotations extends Component {
    * Handle click event of an annotation.
   */
   handleClick(event, annotation) {
+    console.log(annotation);
     const {
-      deselectAnnotation, selectAnnotation, selectedAnnotationIds, windowId,
+      deselectAnnotation, selectAnnotation, selectedAnnotationIds, windowId, zoomToBounds
     } = this.props;
 
     if (selectedAnnotationIds.includes(annotation.id)) {
       deselectAnnotation(windowId, annotation.targetId, annotation.id);
     } else {
       selectAnnotation(windowId, annotation.targetId, annotation.id);
+      zoomToBounds(windowId, annotation.fragmentSelector);
     }
   }
 

@@ -15,6 +15,7 @@ import {
   getSearchAnnotationsForWindow,
   getSelectedContentSearchAnnotations,
   getTheme,
+  getNewBounds,
 } from '../state/selectors';
 
 /**
@@ -37,6 +38,7 @@ const mapStateToProps = (state, { companionWindowId, windowId }) => ({
   selectedAnnotations: getSelectedAnnotationsOnCanvases(state, { windowId }),
   selectedContentSearchAnnotations: getSelectedContentSearchAnnotations(state, { windowId }),
   viewer: getViewer(state, { windowId }),
+  getNewBounds: getNewBounds(state, { windowId })
 });
 
 /**

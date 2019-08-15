@@ -101,6 +101,7 @@ export class OpenSeadragonViewer extends Component {
       viewer,
       highlightedAnnotations, selectedAnnotations,
       searchAnnotations, selectedContentSearchAnnotations,
+      getNewBounds,
     } = this.props;
     const highlightsUpdated = !OpenSeadragonViewer.annotationsMatch(
       highlightedAnnotations, prevProps.highlightedAnnotations,
@@ -140,6 +141,9 @@ export class OpenSeadragonViewer extends Component {
       if (viewer.zoom !== viewport.zoomSpring.target.value) {
         this.viewer.viewport.zoomTo(viewer.zoom, viewer, false);
       }
+    }
+    if (getNewBounds) {
+      this.fitBoundsWithConstraints(getNewBounds[0], getNewBounds[1], getNewBounds[2], getNewBounds[3], false);
     }
   }
 
@@ -236,6 +240,13 @@ export class OpenSeadragonViewer extends Component {
    */
   fitBounds(x, y, w, h, immediately = true) {
     this.viewer.viewport.fitBounds(
+      new OpenSeadragon.Rect(x, y, w, h),
+      immediately,
+    );
+  }
+
+  fitBoundsWithConstraints(x, y, w, h, immediately = true) {
+    this.viewer.viewport.fitBoundsWithConstraints(
       new OpenSeadragon.Rect(x, y, w, h),
       immediately,
     );
