@@ -101,7 +101,7 @@ export class OpenSeadragonViewer extends Component {
       viewer,
       highlightedAnnotations, selectedAnnotations,
       searchAnnotations, selectedContentSearchAnnotations,
-      getNewBounds,
+      bounds,
     } = this.props;
     const highlightsUpdated = !OpenSeadragonViewer.annotationsMatch(
       highlightedAnnotations, prevProps.highlightedAnnotations,
@@ -142,8 +142,8 @@ export class OpenSeadragonViewer extends Component {
         this.viewer.viewport.zoomTo(viewer.zoom, viewer, false);
       }
     }
-    if (getNewBounds) {
-      this.fitBoundsWithConstraints(getNewBounds[0], getNewBounds[1], getNewBounds[2], getNewBounds[3], false);
+    if (bounds) {
+      this.fitBoundsWithConstraints(bounds[0], bounds[1], bounds[2], bounds[3], false);
     }
   }
 
@@ -164,7 +164,7 @@ export class OpenSeadragonViewer extends Component {
    * Forward OSD state to redux
    */
   onViewportChange(event) {
-    const { updateViewport, windowId } = this.props;
+    const { updateViewport, windowId, zoomToBounds } = this.props;
 
     const { viewport } = event.eventSource;
 
@@ -173,6 +173,9 @@ export class OpenSeadragonViewer extends Component {
       y: Math.round(viewport.centerSpringY.target.value),
       zoom: viewport.zoomSpring.target.value,
     });
+
+    // make sure we unset any bounds, otherwise we will end up recentering on the bounds no matter what the user does
+    zoomToBounds(windowId, null);
   }
 
   /** */

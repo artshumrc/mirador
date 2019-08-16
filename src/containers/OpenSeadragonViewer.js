@@ -38,7 +38,7 @@ const mapStateToProps = (state, { companionWindowId, windowId }) => ({
   selectedAnnotations: getSelectedAnnotationsOnCanvases(state, { windowId }),
   selectedContentSearchAnnotations: getSelectedContentSearchAnnotations(state, { windowId }),
   viewer: getViewer(state, { windowId }),
-  getNewBounds: getNewBounds(state, { windowId })
+  bounds: getNewBounds(state, { windowId })
 });
 
 /**
@@ -48,6 +48,7 @@ const mapStateToProps = (state, { companionWindowId, windowId }) => ({
  */
 const mapDispatchToProps = {
   updateViewport: actions.updateViewport,
+  zoomToBounds: actions.zoomToBounds,
 };
 
 const enhance = compose(

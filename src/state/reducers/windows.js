@@ -190,7 +190,6 @@ export const windowsReducer = (state = {}, action) => {
         },
       };
       case ActionTypes.ZOOM_TO_BOUNDS:
-      console.log(state[action.windowId]);
         return {
           ...state,
           [action.windowId]: {
