@@ -142,3 +142,10 @@ export const getHighlightedAnnotationsOnCanvases = createSelector(
     return [];
   },
 );
+
+export const getNewBounds = createSelector(
+  [
+    (state, { windowId }) => state.windows[windowId].newBounds,
+  ],
+  (newBounds) => newBounds,
+);

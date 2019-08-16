@@ -20,6 +20,7 @@ function getIdAndContentOfResources(resources) {
     content: resource.chars,
     id: resource.id,
     targetId: resource.targetId,
+    fragmentSelector: resource.fragmentSelector,
   }));
 }
 
@@ -47,6 +48,7 @@ const mapDispatchToProps = {
   deselectAnnotation: actions.deselectAnnotation,
   highlightAnnotation: actions.highlightAnnotation,
   selectAnnotation: actions.selectAnnotation,
+  zoomToBounds: actions.zoomToBounds,
 };
 
 /** For withStlyes */
