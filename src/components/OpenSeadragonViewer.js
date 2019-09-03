@@ -200,7 +200,7 @@ export class OpenSeadragonViewer extends Component {
         if (!canvasWorld.canvasIds.includes(resource.targetId)) return;
         const offset = canvasWorld.offsetByCanvas(resource.targetId);
         const fragment = resource.fragmentSelector;
-        fragment[0] += offset.x;
+        fragment[1] += offset.y;
         context.strokeStyle = color;
         context.lineWidth = Math.ceil(10 / (zoom * width));
         context.strokeRect(...fragment);
