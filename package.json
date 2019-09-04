@@ -29,6 +29,7 @@
   ],
   "repository": "https://github.com/ProjectMirador/mirador",
   "dependencies": {
+    "@babel/polyfill": "^7.4.4",
     "@material-ui/core": "^4.2.2",
     "@material-ui/icons": "^4.2.1",
     "@material-ui/lab": "^4.0.0-alpha.23",
@@ -67,6 +68,8 @@
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
     "sass-loader": "^7.1.0",
+    "unfetch": "^4.1.0",
+    "url-polyfill": "^1.1.5",
     "uuid": "^3.3.2"
   },
   "devDependencies": {

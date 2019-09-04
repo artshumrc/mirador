@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import '@babel/polyfill';
+import 'url-polyfill/url-polyfill';
+import 'unfetch/polyfill';
 import deepmerge from 'deepmerge';
 import uuid from 'uuid/v4';
 import PluginProvider from '../extend/PluginProvider';
