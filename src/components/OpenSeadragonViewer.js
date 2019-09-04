@@ -101,7 +101,7 @@ export class OpenSeadragonViewer extends Component {
       viewer,
       highlightedAnnotations, selectedAnnotations,
       searchAnnotations, selectedContentSearchAnnotations,
-      bounds,
+      bounds, canvasWorld
     } = this.props;
     const highlightsUpdated = !OpenSeadragonViewer.annotationsMatch(
       highlightedAnnotations, prevProps.highlightedAnnotations,
@@ -143,7 +143,8 @@ export class OpenSeadragonViewer extends Component {
       }
     }
     if (bounds) {
-      this.fitBoundsWithConstraints(bounds[0], bounds[1], bounds[2], bounds[3], false);
+      const offset = canvasWorld.offsetByCanvas(bounds.targetId);
+      this.fitBoundsWithConstraints(bounds.fragmentSelector[0], bounds.fragmentSelector[1]+offset.y, bounds.fragmentSelector[2], bounds.fragmentSelector[3], false);
     }
   }
 
@@ -191,6 +192,7 @@ export class OpenSeadragonViewer extends Component {
    * annotationsToContext - converts anontations to a canvas context
    */
   annotationsToContext(annotations, color = 'yellow') {
+    //console.log(annotations);
     const { canvasWorld } = this.props;
     const context = this.osdCanvasOverlay.context2d;
     const zoom = this.viewer.viewport.getZoom(true);

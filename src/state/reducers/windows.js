@@ -194,7 +194,7 @@ export const windowsReducer = (state = {}, action) => {
           ...state,
           [action.windowId]: {
             ...state[action.windowId],
-            newBounds: action.fragmentSelector
+            newBounds: action.annotation
           },
         };
     case ActionTypes.TOGGLE_ANNOTATION_DISPLAY:

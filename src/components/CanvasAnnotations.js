@@ -33,7 +33,7 @@ export class CanvasAnnotations extends Component {
       deselectAnnotation(windowId, annotation.targetId, annotation.id);
     } else {
       selectAnnotation(windowId, annotation.targetId, annotation.id);
-      zoomToBounds(windowId, annotation.fragmentSelector);
+      zoomToBounds(windowId, annotation);
     }
   }
 

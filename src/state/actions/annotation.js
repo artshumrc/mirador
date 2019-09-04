@@ -132,10 +132,10 @@ export function highlightAnnotation(windowId, annotationId) {
  * @param  {Array} fragmentSelector
  * @memberof ActionCreators
  */
-export function zoomToBounds(windowId, fragmentSelector) {
+export function zoomToBounds(windowId, annotation) {
   return {
     type: ActionTypes.ZOOM_TO_BOUNDS,
     windowId,
-    fragmentSelector
+    annotation
   };
 }
