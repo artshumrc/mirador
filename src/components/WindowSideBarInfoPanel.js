@@ -64,9 +64,9 @@ export class WindowSideBarInfoPanel extends Component {
           <ManifestInfo id={id} windowId={windowId} />
         </div>
 
-        <div className={classes.section}>
+        {/*<div className={classes.section}>
           <ManifestRelatedLinks id={id} windowId={windowId} />
-        </div>
+        </div>*/}
       </CompanionWindow>
     );
   }

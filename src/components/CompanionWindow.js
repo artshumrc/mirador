@@ -78,7 +78,7 @@ export class CompanionWindow extends Component {
           minWidth={position === 'left' ? 235 : 100}
         >
 
-          <Toolbar className={[classes.toolbar, size.width < 370 ? classes.small : null, ns('companion-window-header')].join(' ')} disableGutters>
+          { /*<Toolbar className={[classes.toolbar, size.width < 370 ? classes.small : null, ns('companion-window-header')].join(' ')} disableGutters>
             <Typography variant="h3" className={classes.windowSideBarTitle}>
               {title}
             </Typography>
@@ -123,7 +123,7 @@ export class CompanionWindow extends Component {
                 </div>
               )
             }
-          </Toolbar>
+          </Toolbar> */ }
           <Paper className={classes.content} elevation={0}>
             {children}
           </Paper>
