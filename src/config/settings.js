@@ -55,6 +55,9 @@ export default {
         secondary: '#00BFFF',
       },
       section_divider: 'rgba(0, 0, 0, 0.25)',
+      action: {
+        selected: 'rgba(255, 255, 0, 0.14)'
+      }
     },
     typography: {
       body1: {
