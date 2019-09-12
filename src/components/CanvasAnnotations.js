@@ -28,12 +28,18 @@ export class CanvasAnnotations extends Component {
     const {
       deselectAnnotation, selectAnnotation, selectedAnnotationIds, windowId, zoomToBounds
     } = this.props;
-
     if (selectedAnnotationIds.includes(annotation.id)) {
       deselectAnnotation(windowId, annotation.targetId, annotation.id);
     } else {
       selectAnnotation(windowId, annotation.targetId, annotation.id);
       zoomToBounds(windowId, annotation);
+      if (selectedAnnotationIds && selectedAnnotationIds.length > 0) {
+        selectedAnnotationIds.forEach((annotationId) => {
+          if (annotationId) {
+            deselectAnnotation(windowId, annotation.targetId, annotationId);
+          }
+        });
+      }
     }
   }
 
