@@ -60,6 +60,7 @@ export class CompanionWindow extends Component {
         style={{
           display: isDisplayed ? null : 'none',
           order: position === 'left' ? -1 : null,
+          width: '100%'
         }}
         square
         component="aside"
@@ -70,7 +71,7 @@ export class CompanionWindow extends Component {
           style={{ display: 'flex', position: 'relative' }}
           default={{
             height: position === 'bottom' || position === 'far-bottom' ? 201 : 'auto',
-            width: position === 'bottom' || position === 'far-bottom' ? 'auto' : 235,
+            width: position === 'bottom' || position === 'far-bottom' ? 'auto' : '100%',
           }}
           disableDragging
           enableResizing={this.resizeHandles()}

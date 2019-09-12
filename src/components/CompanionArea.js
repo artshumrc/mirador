@@ -42,7 +42,11 @@ export class CompanionArea extends Component {
     } = this.props;
 
     return (
-      <div className={[classes.root, this.areaLayoutClass(), ns(`companion-area-${position}`)].join(' ')}>
+      <div className={[classes.root, this.areaLayoutClass(), ns(`companion-area-${position}`)].join(' ')}
+      style={{
+        width: '50%'
+      }}
+      >
         {
           setCompanionAreaOpen && position === 'left' && sideBarOpen && companionWindowIds.length > 0
           && (
@@ -60,7 +64,7 @@ export class CompanionArea extends Component {
           )
         }
         <Slide in={companionAreaOpen} direction={this.slideDirection()}>
-          <div className={[ns('companion-windows'), companionWindowIds.length > 0 && classes[position], this.areaLayoutClass()].join(' ')} style={{ display: companionAreaOpen ? 'flex' : 'none' }}>
+          <div className={[ns('companion-windows'), companionWindowIds.length > 0 && classes[position], this.areaLayoutClass()].join(' ')} style={{ display: companionAreaOpen ? 'flex' : 'none', width: '100%' }}>
             {
               companionWindowIds.map(id => (
                 <CompanionWindowFactory id={id} key={id} windowId={windowId} />
